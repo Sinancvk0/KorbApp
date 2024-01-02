@@ -1,0 +1,18 @@
+<div class="product-grid">
+    <div class="card" *ngFor="let product of products">
+        <img class="card-img-top" style="width: 100px; height: 100px;" [src]="product.image" alt="Title" />
+        <div class="card-body">
+            <h4 class="card-title">{{product.name}}</h4>
+            <p class="card-text">{{product.price}}</p>
+            <button class="btn btn-primary " (click)="getProductById(product.id)">Sepete Ekle</button>
+        </div>
+    </div>
+</div>
+
+<div class="cart-items">
+    <div *ngFor="let item of getItems()">
+        <p>{{ item.name }} - Quantity: {{ item.quantity !== undefined ? item.quantity : 'N/A' }} - Total Price: {{ item.price !== undefined && item.quantity !== undefined ? item.price * item.quantity : 'N/A' }}</p>
+
+    </div>
+</div>
+
